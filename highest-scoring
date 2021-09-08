@@ -1,0 +1,5 @@
+# https://www.lintcode.com/problem/2500
+
+SELECT T.name, P.name, MAX(P.scores) FROM players AS P 
+INNER JOIN teams AS T ON T.id = P.team_id
+GROUP BY P.team_id, P.scores, P.name, T.name

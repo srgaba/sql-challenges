@@ -1,0 +1,7 @@
+SELECT student_id, device_id
+FROM online_class_situations
+WHERE (student_id, date) IN (
+    SELECT student_id, MIN(date) old_date FROM online_class_situations
+    WHERE course_number > 0
+    GROUP BY student_id
+);
